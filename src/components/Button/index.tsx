@@ -1,6 +1,8 @@
+import './style.scss';
+
 const Button = () => {
     return ( 
-        <button>
+        <button className='botao'>
             Aperte
         </button>
      );
