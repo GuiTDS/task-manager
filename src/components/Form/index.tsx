@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../Button";
 import style from './Form.module.scss';
 import ITarefa from "../../types/ITarefa";
+import { v4 as uuidv4 } from 'uuid'
 
 interface FormProps {
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
@@ -13,7 +14,9 @@ const Form = ({setTarefas}: FormProps) => {
 
     function adicionarTarefa(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        setTarefas(tarefasAntigas => [...tarefasAntigas, {tarefa: novaTarefa, tempo: tempo}]);
+        setTarefas(tarefasAntigas => [...tarefasAntigas, {tarefa: novaTarefa, tempo: tempo, selecionado:false, completado: false, id: uuidv4()}]);
+        setNovaTarefa('');
+        setTempo('00:00:00');
     }
     return (
         <form className={style.novaTarefa} onSubmit={event => adicionarTarefa(event)}>
