@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../Button";
 import style from './Form.module.scss';
 import ITarefa from "../../types/ITarefa";
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid' 
 
 interface FormProps {
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
